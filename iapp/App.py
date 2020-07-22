@@ -48,6 +48,7 @@ class App(object):
             request.args.get('a'): 1
             request.args.getgetlist('a'): ['1']
             """
+            start_time = time.time() * 1000
             input = request.json if methods == 'POST' else request.args
             output = OrderedDict()
 
@@ -59,6 +60,8 @@ class App(object):
                 output['Score'] = 0
             finally:
                 output.update(kwargs)
+                output['Start time'] = str(int(start_time))
+                output['Response time'] = str(int(time.time() * 1000))
 
                 if self.verbose:
                     output['Request Params'] = input
