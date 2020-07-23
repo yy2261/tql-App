@@ -15,6 +15,7 @@ from traceback import format_exc  # https://www.cnblogs.com/klchang/p/4635040.ht
 from sanic import Sanic, response
 import multiprocessing
 import logging
+import time
 from sanic.log import logger
 
 gunicorn_logger = logging.getLogger('gunicorn.error')
